@@ -1,0 +1,87 @@
+
+ÖÎdataSources:
+  - kind: ethereum/contract
+    mapping:
+      abis:
+        - file:
+            /: /ipfs/QmVYLVQSe1Tok2ZWGhn8h3zoKaE4pXNkZZrvNjS3EbVEe2
+          name: Factory
+        - file:
+            /: /ipfs/QmXuTbDkNrN27VydxbS2huvKRk62PMgUTdPDWkxcr2w7j2
+          name: ERC20
+        - file:
+            /: /ipfs/QmbHnhUFZa6qqqRyubUYhXntox1TCBxqryaBM1iNGqVJzT
+          name: ERC20SymbolBytes
+        - file:
+            /: /ipfs/QmQCP6Pdp1MqpwRv2qoPHuUTwZGy7Q3eDHg4w5kzwE9mBj
+          name: ERC20NameBytes
+      apiVersion: 0.0.7
+      callHandlers:
+        - function: setSwapFeeBP(uint256)
+          handler: handlerSetSwapFeeBP
+        - function: setRemoveLiquidityFeeBP(uint256)
+          handler: handlerSetRemoveLiquidityFeeBP
+        - function: setAddLiquidityFeeBP(uint256)
+          handler: handlerSetAddLiquidityFeeBP
+        - function: lock(address)
+          handler: handlerLock
+        - function: unlock(address)
+          handler: handlerUnlock
+      entities:
+        - Pair
+        - Token
+      eventHandlers:
+        - event: 'PairCreated(indexed address,indexed address,address,uint256)'
+          handler: handleNewPair
+      file:
+        /: /ipfs/QmYYV5wrDjyqA18wuKyxLvXy9ZncW77y2K2hTW11tbGTAA
+      kind: ethereum/events
+      language: wasm/assemblyscript
+    name: Factory
+    network: mainnet
+    source:
+      abi: Factory
+      address: '0x604244e2be83bdea5cd94372db4cbe278031e7df'
+      startBlock: 6947154
+description: Nordek is a decentralized protocol.
+repository: 'https://github.com/cowchainworkspace/bidelity-subgraph'
+schema:
+  file:
+    /: /ipfs/QmV1yCvCiDhiJm6pe2ySjtvt1pMJLU37Atb6TTiuoPTZYv
+specVersion: 0.0.4
+templates:
+  - kind: ethereum/contract
+    mapping:
+      abis:
+        - file:
+            /: /ipfs/QmW2gXPduD1C4qvsn4UQRh2dRJifXdbuThiQt83K7qJ8CY
+          name: Pair
+        - file:
+            /: /ipfs/QmVYLVQSe1Tok2ZWGhn8h3zoKaE4pXNkZZrvNjS3EbVEe2
+          name: Factory
+      apiVersion: 0.0.7
+      entities:
+        - Pair
+        - Token
+      eventHandlers:
+        - event: 'Mint(indexed address,uint256,uint256,uint256)'
+          handler: handleMint
+        - event: 'Burn(indexed address,uint256,uint256,indexed address,uint256)'
+          handler: handleBurn
+        - event: >-
+            Swap(indexed address,uint256,uint256,uint256,uint256,indexed
+            address,uint256)
+          handler: handleSwap
+        - event: 'Transfer(indexed address,indexed address,uint256)'
+          handler: handleTransfer
+        - event: 'Sync(uint112,uint112)'
+          handler: handleSync
+      file:
+        /: /ipfs/QmT8AKdj1uLKYBfj36UNZot7GozwajgGStAt11EJuHqbzT
+      kind: ethereum/events
+      language: wasm/assemblyscript
+    name: Pair
+    network: mainnet
+    source:
+      abi: Pair
+Î

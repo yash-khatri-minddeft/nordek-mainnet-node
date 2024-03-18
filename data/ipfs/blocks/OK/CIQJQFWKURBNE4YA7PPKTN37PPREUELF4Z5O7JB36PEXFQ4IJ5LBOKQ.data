@@ -1,0 +1,78 @@
+
+³«dataSources:
+  - kind: ethereum/contract
+    mapping:
+      abis:
+        - file:
+            /: /ipfs/QmQ28FujgvGMvHrVucaaGtmZqmHBim7iNGQvgccaDyNK84
+          name: Factory
+        - file:
+            /: /ipfs/QmXuTbDkNrN27VydxbS2huvKRk62PMgUTdPDWkxcr2w7j2
+          name: ERC20
+        - file:
+            /: /ipfs/QmQCP6Pdp1MqpwRv2qoPHuUTwZGy7Q3eDHg4w5kzwE9mBj
+          name: ERC20NameBytes
+        - file:
+            /: /ipfs/QmbHnhUFZa6qqqRyubUYhXntox1TCBxqryaBM1iNGqVJzT
+          name: ERC20SymbolBytes
+      apiVersion: 0.0.4
+      entities:
+        - Pair
+        - Token
+      eventHandlers:
+        - event: 'PairCreated(indexed address,indexed address,address,uint256)'
+          handler: handlePairCreated
+      file:
+        /: /ipfs/QmagwkhZLpMJhzKNfFZr2sEG4hCywVFMnpwNKmyEHojAqz
+      kind: ethereum/events
+      language: wasm/assemblyscript
+    name: Factory
+    network: mainnet
+    source:
+      abi: Factory
+      address: '0x604244e2be83bdea5cd94372db4cbe278031e7df'
+      startBlock: 6953673
+description: >-
+  PancakeSwap is a multi-chain decentralized exchange and automated market maker
+  protocol.
+repository: 'https://github.com/pancakeswap'
+schema:
+  file:
+    /: /ipfs/QmYLKyWMJ1YsxLou3VNPntJxaCywRtriobhVEHRHQ7ztZ4
+specVersion: 0.0.4
+templates:
+  - kind: ethereum/contract
+    mapping:
+      abis:
+        - file:
+            /: /ipfs/QmQ28FujgvGMvHrVucaaGtmZqmHBim7iNGQvgccaDyNK84
+          name: Factory
+        - file:
+            /: /ipfs/QmbPLMADBP8L6LBVP3ZBQ8RgG7ghamD8DvbdUxHAjZrLgm
+          name: Pair
+      apiVersion: 0.0.4
+      entities:
+        - Pair
+        - Token
+      eventHandlers:
+        - event: 'Mint(indexed address,uint256,uint256)'
+          handler: handleMint
+        - event: 'Burn(indexed address,uint256,uint256,indexed address)'
+          handler: handleBurn
+        - event: >-
+            Swap(indexed address,uint256,uint256,uint256,uint256,indexed
+            address)
+          handler: handleSwap
+        - event: 'Transfer(indexed address,indexed address,uint256)'
+          handler: handleTransfer
+        - event: 'Sync(uint112,uint112)'
+          handler: handleSync
+      file:
+        /: /ipfs/Qmba2H2wE2Py61CVhfCnKAFrGytds8tYcxdekPtzawEMU6
+      kind: ethereum/events
+      language: wasm/assemblyscript
+    name: Pair
+    network: mainnet
+    source:
+      abi: Pair
+«
